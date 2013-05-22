@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head><title>test</title>
+    </head>
+    <body>
+    <div id="displayVal">0</div>
+        <script type="text/javascript">
+            var currentValue = 0;
+
+            function start() {
+            console.log( 'start' );
+                setTimeout( pausedIterator(), 5000 );
+            }
+
+            function pausedIterator() {
+            console.log( 'pausedIterator' );
+                rapidIncrementor( Math.floor( ( Math.random()*50 ) + 1 ) );
+            }
+
+            function rapidIncrementor( val ) {
+            console.log( 'rapidIncrementor' );
+                var currValue = currentValue;
+                for( var x = 0; x < val; x++ ) {
+                    bump();
+                }
+            }
+
+            function bump() {
+                console.log( 'bump' );
+                currentValue += 1;
+                document.getElementById( 'displayVal' ).innerHTML = currentValue;
+            }
+
+            start();
+        </script>
+    </body>
+</html>
